@@ -1,24 +1,17 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { NaveDeCarga, NaveDeResiduos, NaveDePasajeros, NaveDeCombate } from '../Dominio/naves';
+import Nave from './Nave';
+
+export const naves = [new NaveDeCarga(), new NaveDeResiduos(), new NaveDePasajeros(15), new NaveDeCombate()]
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
+      {naves.map((unaNave, i) => <Nave key={i} nave={unaNave} />)}
     </div>
   );
 }

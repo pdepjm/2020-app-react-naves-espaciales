@@ -1,0 +1,15 @@
+.Nave {
+  display: inline-flex;
+}
+
+.Nave-Seccion {
+  text-align: center;
+  margin: 2rem;
+}
+
+.Acciones {
+  display: grid;
+}
+.Atributos {
+  display: grid;
+}

@@ -1,4 +1,4 @@
-abstract class Nave {
+export abstract class Nave {
   velocidad = 0
 
   propulsar() {
@@ -50,7 +50,12 @@ export class NaveDeResiduos extends NaveDeCarga {
 export class NaveDePasajeros extends Nave {
 
   alarma = false
-  /*readonly */ cantidadDePasajeros = 0
+  readonly cantidadDePasajeros
+
+  constructor(cantidadDePasajeros = 0) {
+    super()
+    this.cantidadDePasajeros = cantidadDePasajeros
+  }
 
   tripulacion() { return this.cantidadDePasajeros + 4 }
 
