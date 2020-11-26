@@ -35,9 +35,9 @@ function ComponenteNave(props: NaveProps) {
 export default ComponenteNave
 
 function Avatar({ nave }: NaveProps) {
-  const imagenes = [ imgNaveDeCarga, imgNaveDePasajeros, imgNaveDeResiduos, imgNaveDeCombate ]
+  const imagenes = [imgNaveDeCarga, imgNaveDePasajeros, imgNaveDeResiduos, imgNaveDeCombate]
   return (<>
-    <img src={imagenes.find( src => src.indexOf(nave.constructor.name) >=0 )} />
+    <img src={imagenes.find(src => src.indexOf(nave.constructor.name) >= 0)} alt={nave.constructor.name} />
     <p>Tipo: {nave.constructor.name}</p>
   </>)
 }
@@ -64,7 +64,7 @@ function Atributos({ nave }: NaveProps) {
       }
 
       {(nave instanceof NaveDeCombate)
-        ? <label>Último mensaje: {nave.ultimoMensaje()}</label>
+        ? <label>Último mensaje: {nave.ultimoMensaje()}</label> //FIXME: No actualiza la vista
         : null
       }
     </div>)
@@ -96,14 +96,14 @@ function Acciones({ nave, setNave }: AccionesNaveProps) {
     <div className="Acciones">
       <button onClick={propulsar}>
         Propulsar
-    </button>
+      </button>
 
       <button onClick={prepararParaViajar}>
         Preparar para viajar
-    </button>
+      </button>
 
       <button onClick={encontrarConEnemigo}>
         Encontrarse con enemigo
-    </button>
+      </button>
     </div>)
 }

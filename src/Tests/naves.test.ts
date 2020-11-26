@@ -70,8 +70,7 @@ describe("Nave de pasajeros", () => {
 
   beforeEach(() => {
     naveSinPasajeros = new NaveDePasajeros()
-    naveConPasajeros = new NaveDePasajeros()
-    naveConPasajeros.cantidadDePasajeros = 296
+    naveConPasajeros = new NaveDePasajeros(296)
     naveConPasajeros.velocidad = 290000
   })
 
@@ -145,6 +144,12 @@ describe("Nave de combate", () => {
   test("recibir amenaza en ataque", () => {
     naveEnAtaque.recibirAmenaza()
     expect(naveEnAtaque.ultimoMensaje()).toBe("Enemigo encontrado")
+  })
+
+  test("recibir amenaza y preparse para viajar", () => {
+    naveEnAtaque.recibirAmenaza()
+    naveEnAtaque.prepararseParaViajar()
+    expect(naveEnAtaque.ultimoMensaje()).toBe("Volviendo a la base")
   })
 
   test("Una nave de combate en modo ataque sin velocidad al prepararse para viajar emite el mensaje Volviendo a la base y queda con velocidad de 15.000 kms/seg", () => {
