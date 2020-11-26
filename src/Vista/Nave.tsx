@@ -2,6 +2,12 @@ import { NaveDeCarga, NaveDeResiduos, NaveDePasajeros, NaveDeCombate } from '../
 import { MouseEvent, useState } from 'react'
 import { naves } from './App'
 import './Nave.css'
+import React from 'react'
+import imgNaveDeCarga from './img/NaveDeCarga.png'
+import imgNaveDePasajeros from './img/NaveDePasajeros.png'
+import imgNaveDeResiduos from './img/NaveDeResiduos.png'
+import imgNaveDeCombate from './img/NaveDeCombate.png'
+
 
 type NaveTypes = typeof naves[0]
 type NaveProps = { nave: NaveTypes }
@@ -29,8 +35,10 @@ function ComponenteNave(props: NaveProps) {
 export default ComponenteNave
 
 function Avatar({ nave }: NaveProps) {
+  const imagenes = [ imgNaveDeCarga, imgNaveDePasajeros, imgNaveDeResiduos, imgNaveDeCombate ]
   return (<>
-    {nave.constructor.name}
+    <img src={imagenes.find( src => src.indexOf(nave.constructor.name) >=0 )} />
+    <p>Tipo: {nave.constructor.name}</p>
   </>)
 }
 
