@@ -13,6 +13,16 @@
   max-height: 20%;
 }
 
+.Persistencia-Acciones {
+  position: absolute;
+  right: 0;
+  top: 95%;
+  margin: 1rem;
+  justify-content: space-between;
+  display: flex;
+  width: 8rem;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
